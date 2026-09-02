@@ -32,3 +32,18 @@ function mma_fights_widgets() {
     ) );
 }
 add_action( 'widgets_init', 'mma_fights_widgets' );
+
+/**
+ * Laad de stylesheet van het thema in.
+ * Dit is de nette WordPress-manier: geen hardcoded <link> in header.php,
+ * maar via wp_head() zodat WordPress de volgorde en caching regelt.
+ */
+function mma_fights_styles() {
+    wp_enqueue_style(
+        'mma-fights-style',                 // unieke naam (handle)
+        get_stylesheet_uri(),               // pad naar style.css van het thema
+        array(),                            // geen afhankelijkheden
+        wp_get_theme()->get( 'Version' )    // versienummer uit de theme header, voor cache-busting
+    );
+}
+add_action( 'wp_enqueue_scripts', 'mma_fights_styles' );
