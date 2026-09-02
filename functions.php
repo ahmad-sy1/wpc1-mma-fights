@@ -15,3 +15,20 @@ function mma_fights_menus() {
     ) );
 }
 add_action( 'after_setup_theme', 'mma_fights_menus' );
+
+/**
+ * Registreer een widget-gebied (sidebar).
+ * Widgets die je hier in WordPress plaatst, verschijnen in sidebar.php.
+ */
+function mma_fights_widgets() {
+    register_sidebar( array(
+        'name'          => 'Zijbalk',
+        'id'            => 'zijbalk-1',
+        'description'   => 'Widgets voor naast de inhoud.',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-titel">',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'mma_fights_widgets' );
