@@ -11,27 +11,18 @@ get_header();
 <h1><?php the_archive_title(); ?></h1>
 
 <?php
-// The Loop: toon alle berichten die bij dit archief horen.
+// The Loop: toon per bericht hetzelfde template-part als op de homepage.
 if ( have_posts() ) :
+
     while ( have_posts() ) :
         the_post();
-        ?>
-
-        <article <?php post_class(); ?>>
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <p class="post-meta">Geplaatst op <?php the_time( 'j F Y' ); ?></p>
-            <div class="post-excerpt"><?php the_excerpt(); ?></div>
-        </article>
-
-        <?php
+        get_template_part( 'template-parts/content' );
     endwhile;
 
     the_posts_navigation();
 
 else :
-    ?>
-    <p>Er zijn geen berichten in dit overzicht.</p>
-    <?php
+    get_template_part( 'template-parts/content-none' );
 endif;
 ?>
 

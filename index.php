@@ -9,28 +9,20 @@ get_header();
 ?>
 
 <?php
-// The Loop: loop door alle berichten en toon per bericht een korte weergave.
+// The Loop: loop door alle berichten en toon per bericht het template-part "content".
 if ( have_posts() ) :
+
     while ( have_posts() ) :
         the_post();
-        ?>
-
-        <article <?php post_class(); ?>>
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <p class="post-meta">Geplaatst op <?php the_time( 'j F Y' ); ?></p>
-            <div class="post-excerpt"><?php the_excerpt(); ?></div>
-        </article>
-
-        <?php
+        get_template_part( 'template-parts/content' );
     endwhile;
 
     // Navigatie naar oudere/nieuwere berichten
     the_posts_navigation();
 
 else :
-    ?>
-    <p>Er zijn nog geen berichten gevonden.</p>
-    <?php
+    // Geen berichten: toon het template-part "content-none".
+    get_template_part( 'template-parts/content-none' );
 endif;
 ?>
 
