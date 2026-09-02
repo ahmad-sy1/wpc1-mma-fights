@@ -22,6 +22,11 @@
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
     </p>
     <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+
+    <?php // Toont het menu dat in WordPress aan de locatie "hoofdmenu" is gekoppeld ?>
+    <nav class="site-nav">
+        <?php wp_nav_menu( array( 'theme_location' => 'hoofdmenu' ) ); ?>
+    </nav>
 </header>
 
 <?php // Vanaf hier begint de inhoud die per template verschilt ?>
