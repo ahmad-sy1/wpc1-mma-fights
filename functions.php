@@ -5,16 +5,21 @@
  */
 
 /**
- * Registreer een navigatiemenu.
- * Daarna kun je in het WordPress-menu (Weergave > Menu's) een menu koppelen
- * aan de locatie "hoofdmenu".
+ * Basisinstellingen van het thema.
+ * Wordt uitgevoerd zodra WordPress het thema heeft geladen.
  */
-function mma_fights_menus() {
+function mma_fights_setup() {
+
+    // Laat WordPress zelf de <title> van elke pagina bepalen en in wp_head() plaatsen.
+    add_theme_support( 'title-tag' );
+
+    // Registreer een navigatiemenu. Daarna kun je in WordPress
+    // (Weergave > Menu's) een menu koppelen aan de locatie "hoofdmenu".
     register_nav_menus( array(
         'hoofdmenu' => 'Hoofdmenu (bovenaan de site)',
     ) );
 }
-add_action( 'after_setup_theme', 'mma_fights_menus' );
+add_action( 'after_setup_theme', 'mma_fights_setup' );
 
 /**
  * Registreer een widget-gebied (sidebar).
