@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# IDE / editors
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Dependencies en build-output
+node_modules/
+vendor/
+*.log
+
+# Lokale omgeving
+.env
