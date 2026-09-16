@@ -4,3 +4,176 @@ Author: [jouw naam]
 Description: Custom classic thema voor een site over aankomende MMA-gevechten.
 Version: 1.0
 */
+
+/* Basis: kleuren, lettertype en een prettige regelafstand */
+body {
+    margin: 0;
+    background: #f4f4f5;
+    color: #1c1c1e;
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Links in de huisstijlkleur (rood, past bij MMA) */
+a {
+    color: #c62828;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Kop bovenaan elke pagina */
+.site-header {
+    background: #1c1c1e;
+    color: #fff;
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.site-title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-description {
+    margin: 4px 0 0;
+    color: #b0b0b5;
+    font-size: 15px;
+}
+
+/* Navigatiemenu: de lijst van wp_nav_menu horizontaal tonen */
+.site-nav ul {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.site-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.site-nav a:hover {
+    color: #ff5252;
+}
+
+/* Inhoud: hoofdkolom met de zijbalk ernaast */
+.site-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 20px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 32px;
+    align-items: start;
+}
+
+/* Alles behalve de zijbalk staat in de linkerkolom, onder elkaar */
+.site-content > *:not(.site-sidebar) {
+    grid-column: 1;
+}
+
+/* De zijbalk staat rechts en loopt naast de hele inhoud door */
+.site-sidebar {
+    grid-column: 2;
+    grid-row: 1 / -1;
+}
+
+/* Elk bericht of elke pagina als een witte kaart */
+article {
+    background: #fff;
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+article h1,
+article h2 {
+    margin-top: 0;
+    line-height: 1.25;
+}
+
+article h2 a {
+    text-decoration: none;
+}
+
+/* Datum, auteur en categorie: kleiner en grijs */
+.post-meta,
+.post-categories {
+    color: #6b6b70;
+    font-size: 14px;
+}
+
+/* Widgets in de zijbalk */
+.widget {
+    background: #fff;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.widget-titel {
+    margin-top: 0;
+    font-size: 17px;
+    border-bottom: 2px solid #c62828;
+    padding-bottom: 8px;
+}
+
+.widget ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widget li {
+    padding: 4px 0;
+    border-bottom: 1px solid #ececed;
+}
+
+/* Navigatie naar oudere/nieuwere berichten */
+.posts-navigation,
+.post-navigation {
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+/* Voettekst onderaan elke pagina */
+.site-footer {
+    background: #1c1c1e;
+    color: #b0b0b5;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Op smalle schermen: zijbalk onder de inhoud in plaats van ernaast */
+@media (max-width: 782px) {
+    .site-content {
+        grid-template-columns: 1fr;
+    }
+
+    .site-content > *,
+    .site-sidebar {
+        grid-column: 1;
+    }
+
+    .site-sidebar {
+        grid-row: auto;
+    }
+}
